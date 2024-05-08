@@ -45,7 +45,3 @@ Então vejo uma mensagem de erro - Formato de e-mail inválido
 # Quando insiro um e-mail com mais de 60 caracteres
 # E confirmo a operação
 # Então o sistema exibe a mensagem - Informe no máximo 60 caracteres para o e-mail
-
-
-
-// Iury somente consegui implementar 3 testes pois ele não avançando mais //
