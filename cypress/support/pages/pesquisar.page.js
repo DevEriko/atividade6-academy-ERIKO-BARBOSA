@@ -13,8 +13,10 @@ export default class pesquisaPageUsuario {
     nomeDetalhe = "#userName";
     emailDetalhe = "#userEmail";
 
+    usuario = '#userData';
     nomeUsuario = '[data-test="userDataName"]';
     emailUsuario = '[data-test="userDataEmail"]';
+    usuarioNaoExiste = 'h3';
 
     typeBuscarNome(nome) {
         cy.get(this.inputBuscar).type(nome);

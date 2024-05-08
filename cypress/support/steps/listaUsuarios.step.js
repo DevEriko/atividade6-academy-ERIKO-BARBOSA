@@ -14,23 +14,22 @@ Before({ tags: "@listUsers" }, () => {
 });
 
 When("acessar a lista de usuários", function () {
-    cy.get('#listaUsuarios').should('be.visible');
+    cy.get(pagelistaUsuario.listaUsuario).should('be.visible');
 })
 
 Then('terá acesso as informações de nome e email de todos os usuário da lista', function () {
-    cy.get('#listaUsuarios').should('be.visible');
-    cy.get('[data-test="userDataName"]').should('be.visible');
-    cy.get('[data-test="userDataEmail"]').should('be.visible');
+    cy.get(pagelistaUsuario.listaUsuario).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioNome).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioEmail).should('be.visible');
     cy.get(pagelistaUsuario.buttonProximaPagina).should('be.enabled');
     pagelistaUsuario.clickButtonProximaPagina()
-    cy.get('#listaUsuarios').should('be.visible');
-    cy.get('[data-test="userDataName"]').should('be.visible');
-    cy.get('[data-test="userDataEmail"]').should('be.visible');
+    cy.get(pagelistaUsuario.listaUsuario).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioNome).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioEmail).should('be.visible');
     pagelistaUsuario.clickButtonProximaPagina()
-    cy.get('#listaUsuarios').should('be.visible');
-    cy.get('[data-test="userDataName"]').should('be.visible');
-    cy.get('[data-test="userDataEmail"]').should('be.visible');
-
+    cy.get(pagelistaUsuario.listaUsuario).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioNome).should('be.visible');
+    cy.get(pagelistaUsuario.usuarioEmail).should('be.visible');
 })
 Before({ tags: "@listaVazia" }, () => {
     cy.intercept("GET", "api/v1/users", {
@@ -44,8 +43,8 @@ When('acessar a lista de usuários vazia', function () {
 })
 
 Then('o sistema mostrará a mensagem que não há nenhum usuário para ser exibido, pedindo para cadastrar um novo usuário', function () {
-    cy.get('h3').invoke('text').should('equal', 'Ops! Não existe nenhum usuário para ser exibido.');
-    cy.get('p').invoke('text').should('equal', 'Cadastre um novo usuário')
+    cy.get(pagelistaUsuario.erroNenhumUsuario).invoke('text').should('equal', 'Ops! Não existe nenhum usuário para ser exibido.');
+    cy.get(pagelistaUsuario.erroCadastre).invoke('text').should('equal', 'Cadastre um novo usuário')
 })
 
 Then('a função de avançar para próxima páginas da lista estará habilitada', function () {
@@ -74,10 +73,10 @@ Then('terá acesso a avançar e retornar as páginas da lista de usuários', fun
     cy.get(pagelistaUsuario.buttonProximaPagina).should('be.enabled')
     pagelistaUsuario.clickButtonProximaPagina();
     pagelistaUsuario.clickButtonProximaPagina();
-    cy.get('#paginacaoProximo').should('be.visible')
+    cy.get(pagelistaUsuario.buttonProximaPagina).should('be.visible')
     pagelistaUsuario.clickButtonVoltarPagina();
     pagelistaUsuario.clickButtonVoltarPagina();
-    cy.get('#paginacaoVoltar').should('be.visible')
+    cy.get(pagelistaUsuario.buttonVoltarPagina).should('be.visible')
 })
 
 Then('visualizamos os campos de detalhe e eclusão de usuários', function () {

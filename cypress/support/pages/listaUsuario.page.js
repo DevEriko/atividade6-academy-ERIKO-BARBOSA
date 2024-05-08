@@ -14,6 +14,11 @@ export default class listaPageUsuario {
     buttonVerDetalhesUsuario = '#userDataDetalhe';
 
     listaDeTodosUsuarios = '#listaUsuarios #userData';
+    listaUsuario = '#listaUsuarios';
+
+    erroNenhumUsuario = 'h3';
+    erroCadastre = 'p';
+
 
     clickButtonProximaPagina() {
         cy.get(this.buttonProximaPagina).click();

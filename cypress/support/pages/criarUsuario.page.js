@@ -12,6 +12,7 @@ export default class CadastroPage {
 
     mensagemNomeCaracteres = '.sc-cPiKLX';
     mensagemEmailCaracteres = '.sc-cPiKLX';
+    mensagemDeSucesso = '.go3958317564';
 
     typeNome(nome) {
         cy.get(this.inputNome).type(nome);

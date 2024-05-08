@@ -33,9 +33,9 @@ When('acessar o campo VER DETALHES', function () {
 })
 
 Then('terei acesso as informações do usuário cadastrado', function () {
-    cy.get('[name="id"]').should('be.visible')
-    cy.get('#userName').should('be.visible')
-    cy.get('#userEmail').should('be.visible')
+    cy.get(paginaPesquisa.idDetalhe).should('be.visible')
+    cy.get(paginaPesquisa.nomeDetalhe).should('be.visible')
+    cy.get(paginaPesquisa.emailDetalhe).should('be.visible')
 })
 
 When('informar o nome do usuário cadastrado', function () {
@@ -43,9 +43,9 @@ When('informar o nome do usuário cadastrado', function () {
 })
 
 Then('verei o nome e as informações completas do usuário', function () {
-    cy.get('#userData').should('be.visible')
-    cy.get('[data-test="userDataName"]').should('be.visible')
-    cy.get('[data-test="userDataEmail"]').should('be.visible')
+    cy.get(paginaPesquisa.usuario).should('be.visible')
+    cy.get(paginaPesquisa.nomeUsuario).should('be.visible')
+    cy.get(paginaPesquisa.emailUsuario).should('be.visible')
 })
 
 When('informar o email do usuário cadastrado', function () {
@@ -53,9 +53,9 @@ When('informar o email do usuário cadastrado', function () {
 })
 
 Then('verei o e-mail e as informações completas do usuário', function () {
-    cy.get('#userData').should('be.visible')
-    cy.get('[data-test="userDataEmail"]').should('be.visible')
-    cy.get('[data-test="userDataName"]').should('be.visible')
+    cy.get(paginaPesquisa.usuario).should('be.visible')
+    cy.get(paginaPesquisa.emailUsuario).should('be.visible')
+    cy.get(paginaPesquisa.nomeUsuario).should('be.visible')
 })
 
 Before({ tags: "@usuarioNaoEncontrado" }, () => {
@@ -70,5 +70,5 @@ When('informar nome ou e-mail de um usuário não cadastrado', function () {
 });
 
 Then('o sistema retorna uma mensagem - Ops! Não existe nenhum usuário para ser exibido.', function () {
-    cy.get('h3').invoke('text').should('equal', 'Ops! Não existe nenhum usuário para ser exibido.');
+    cy.get(paginaPesquisa.usuarioNaoExiste).invoke('text').should('equal', 'Ops! Não existe nenhum usuário para ser exibido.');
 })
