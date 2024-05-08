@@ -4,10 +4,14 @@ export default class CadastroPage {
     buttonLimpar = '[data-test-id="clearButton"]';
     buttonCadastrar = 'button[type="submit"]';
 
+
     linkPaginaUsuarios = '[href="./usuarios.html"]';
     linkPaginaSobre = '[href="./sobre.html"]';
 
     listaUsuarios = '#lista-usuarios';
+
+    mensagemNomeCaracteres = '.sc-cPiKLX';
+    mensagemEmailCaracteres = '.sc-cPiKLX';
 
     typeNome(nome) {
         cy.get(this.inputNome).type(nome);

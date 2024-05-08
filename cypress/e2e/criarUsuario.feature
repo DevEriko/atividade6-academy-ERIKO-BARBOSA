@@ -12,9 +12,9 @@ Então o sistema retorna a mensagem - USUÁRIO SALVO COM SUCESSO
 
 Cenário: Não deve ser possível criar um usuário com e-mail inválido
 Quando informar um novo nome
-E informar um e-mail inválido "nome.com"
+E informar um e-mail inválido "eriko.com"
 E confirmar a operação
-Então o sistema retorna a mensagem de erro informado que o e-mail é inválido
+Então o sistema retorna a mensagem de erro informando que o e-mail é inválido
 
 
 Cenário: Não deve ser possível criar um usuário sem o nome

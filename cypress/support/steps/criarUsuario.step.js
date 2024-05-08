@@ -1,5 +1,5 @@
 import { Given, When, Then, Before } from '@badeball/cypress-cucumber-preprocessor';
-import CadastroPage from '../pages/cadastro.page';
+import CadastroPage from '../pages/criarUsuario.page';
 import { faker } from '@faker-js/faker';
 const paginaCriar = new CadastroPage();
 
@@ -21,8 +21,8 @@ When('confirmar a operação', function () {
 });
 
 Then('o sistema retorna a mensagem - USUÁRIO SALVO COM SUCESSO', function () {
-    cy.get(".go3958317564").should("be.visible");
-    cy.get(".go3958317564").should("contain.text", "Usuário salvo com sucesso!");
+    cy.get(paginaCriar.mensagemDeSucesso).should("be.visible");
+    cy.get(paginaCriar.mensagemDeSucesso).should("contain.text", "Usuário salvo com sucesso!");
 });
 
 
@@ -30,7 +30,7 @@ When('informar um e-mail inválido {string}', function (email) {
     paginaCriar.typeEmail(email);
 });
 
-Then('o sistema retorna a mensagem de erro informado que o e-mail é inválido', function () {
+Then('o sistema retorna a mensagem de erro informando que o e-mail é inválido', function () {
     cy.contains('Formato de e-mail inválido').should('be.visible');
 });
 
@@ -47,7 +47,7 @@ When('informar um novo nome com 3 letras', function () {
 });
 
 Then('o campo nome mostrará uma mensagem - Informe pelo menos 4 letras para o nome.', function () {
-    cy.get('#name').should('be.visible');
+    cy.get(paginaCriar.inputNome).should('be.visible');
     cy.contains('Informe pelo menos 4 letras para o nome.').should('be.visible');
 });
 
@@ -69,7 +69,7 @@ When('informar o e-mail já existente', function () {
 });
 
 Then('o campo nome mostrará uma mensagem - Informe no máximo 100 caracteres para o nome', function () {
-    cy.get('.sc-cPiKLX').contains('Informe no máximo 100 caracteres para o nome').should('be.visible');
+    cy.get(paginaCriar.mensagemNomeCaracteres).contains('Informe no máximo 100 caracteres para o nome').should('be.visible');
 });
 
 When('informar um novo nome com mais de 100 caracteres', function () {
@@ -83,5 +83,5 @@ When('informar um novo e-mail com mais de 60 caracteres', function () {
 });
 
 Then('o campo e-mail mostrará uma mensagem - Informe no máximo 60 caracteres para o e-mail', function () {
-    cy.get('.sc-cPiKLX').contains('Informe no máximo 60 caracteres para o e-mail').should('be.visible');
+    cy.get(paginaCriar.mensagemEmailCaracteres).contains('Informe no máximo 60 caracteres para o e-mail').should('be.visible');
 });

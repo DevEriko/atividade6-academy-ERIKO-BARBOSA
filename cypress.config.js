@@ -17,6 +17,7 @@ module.exports = defineConfig({
     TAGS: '@lista6Users',
     TAGS: '@novoUsuario',
     TAGS: '@usuarioNaoEncontrado',
+    TAGS: '@newUser',
     specPattern: 'cypress/e2e/**/*.feature',
     async setupNodeEvents(on, config) {
       await addCucumberPreprocessorPlugin(on, config);
