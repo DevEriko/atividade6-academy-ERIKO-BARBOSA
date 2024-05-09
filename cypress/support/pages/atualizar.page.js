@@ -6,13 +6,15 @@ export default class atualizarPageUsuario {
     listaUsuarios = "#listaUsuarios";
     todosOsUsuariosDaLista = "#listaUsuarios #userData";
     paginaAtual = "#paginacaoAtual";
-
     buttonSalvar = '[type="submit"]';
+    buttonCancelar = ".cEXnaz > .sc-dAlyuH";
     buttonVerDetalhes = '#userDataDetalhe';
     buttonEditar = ".sc-dAlyuH.jdAtLn";
 
     mensagemInformacaoSucesso = '.go3958317564';
     mensagemFormatoEmailInvalido = '.sc-cPiKLX';
+    mensagemFormatoNomeInvalido = '.sc-cPiKLX.feFrSQ';
+    mensagemEmailUsadoPorOutroUsuario = 'p';
 
     idDetalhe = '[name="id"]';
     nomeDetalhe = "#userName";
@@ -25,7 +27,7 @@ export default class atualizarPageUsuario {
         cy.get(this.nomeDetalhe).type(nome)
     }
     typeAtualizarEmail(email) {
-        cy.get(this.emailDetalhe).type(email)
+        cy.get(this.emailDetalhe).clear().type(email)
     }
     typeBuscarNome(nome) {
         cy.get(this.inputBuscar).type(nome);
@@ -47,5 +49,8 @@ export default class atualizarPageUsuario {
     }
     clickButtonSalvar() {
         cy.get(this.buttonSalvar).click();
+    }
+    clickButtonCancelar() {
+        cy.get(this.buttonCancelar).click();
     }
 }
